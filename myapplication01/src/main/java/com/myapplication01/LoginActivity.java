@@ -53,12 +53,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }
                 else {
 //            ÍøÂçÇëÇó
+                    login();
 
                 }
                 break;
             case R.id.login_reg_btn:
 //                ×¢²á
+                startIntent(RegistActivity.class);
                 break;
         }
     }
+//    Ö´ÐÐµÇÂ¼
+    private void login() {
+        String account = accountEdi.getText().toString().trim();
+        String pwa = pwdEdi.getText().toString().trim();
+
+
+    }
+
 }

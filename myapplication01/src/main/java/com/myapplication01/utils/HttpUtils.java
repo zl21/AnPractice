@@ -1,16 +1,20 @@
 package com.myapplication01.utils;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by zhoul on 2019/1/2.
  */
 public class HttpUtils {
     private final static String HOST = "http://120.77.242.43:8000/";
-    public static String doPost(String method) {
+    public static String doPost(String method,HashMap<String,Object> params) {
         try {
 //            获取URL对象
             URL url = new URL(HOST + method);
@@ -21,6 +25,12 @@ public class HttpUtils {
 //            设置连接和读取超时
             httpURLConnection.setConnectTimeout(5000);
             httpURLConnection.setReadTimeout(5000);
+//            判断是否需要传参数
+            if (params != null && params.keySet().size() > 0) {
+//                获取输出流
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+//                account=123 & password=123
+            }
 //            获取响应码
             if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
 //                响应成功，获取输入流对象
@@ -48,4 +58,22 @@ public class HttpUtils {
             return "请检查URL！";
         }
     }
+    /*
+    * 参数类型String；
+    * 参数列表
+    * */
+//    拼接参数格式的方法
+    private String param(HashMap<String,Object> params) {
+        if (params == null) return null;
+        Set<Map.Entry<String,Object>> entries = params.entrySet ();
+        StringBuffer sb = new StringBuffer();
+        for (Map.Entry<String,Object> entry:entries) {
+            sb.append("&" + entry.getKey() + "=" + entry.getValue());
+        }
+        if (sb.length() > 0) {
+            sb.deleteCharAt(0);
+        }
+        return sb.toString();
+    }
+
 }

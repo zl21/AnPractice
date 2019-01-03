@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.myapplication01.base.BaseActivity;
+import com.myapplication01.utils.HttpUtils;
 
 /**
  * Created by zhoul on 2019/1/2.
@@ -67,6 +68,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void login() {
         String account = accountEdi.getText().toString().trim();
         String pwa = pwdEdi.getText().toString().trim();
+//        创建线程、
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+//                子线程
+                final String result = HttpUtils.doPost("login");
+//                下面要走主线程，因为UI操作不能子线程实现
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+//                        主线程
+                        toast(result);
+
+                    }
+                });
+            }
+        };
+//        启动线程
+        new Thread(runnable).start();
 
 
     }

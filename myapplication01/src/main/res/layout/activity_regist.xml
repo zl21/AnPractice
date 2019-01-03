@@ -96,7 +96,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/reg_woman"
+                android:id="@+id/rb_woman"
                 android:text="F"
                 android:layout_marginLeft="20dp"/>
         </RadioGroup>

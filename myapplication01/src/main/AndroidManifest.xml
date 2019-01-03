@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myapplication01" >
-
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
@@ -14,20 +13,20 @@
 
         </activity>
         <activity android:name=".SpActivity">
+
+        </activity>
+        <activity android:name=".base.BaseActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegistActivity">
+        </activity>
+        <activity android:name=".SelectActivity">
+        </activity>
+        <activity android:name=".InfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".base.BaseActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".RegistActivity">
-
-        </activity>
-
-        <activity android:name=".LookActivity">
-
         </activity>
     </application>
 

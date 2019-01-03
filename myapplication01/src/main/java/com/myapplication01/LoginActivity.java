@@ -13,7 +13,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 /**
  * Created by zhoul on 2019/1/2.
@@ -97,7 +96,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             if (code == 0) {
                                 toast("登录成功！");
 //                                跳转主界面
-                                startIntent(LookActivity.class);
+                                startIntent(SelectActivity.class);
 //                                结束当前activity
                                 finish();
                             }

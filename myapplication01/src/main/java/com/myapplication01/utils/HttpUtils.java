@@ -30,9 +30,19 @@ public class HttpUtils {
 //                获取输出流
                 OutputStream outputStream = httpURLConnection.getOutputStream();
 //                account=123 & password=123
+//                获取拼接的参数
+                String paramStr = param(params);
+//                写入数据
+                outputStream.write(paramStr.getBytes("utf-8"));
+//                强制刷新到服务器
+                outputStream.flush();
+//                关闭输出流
+                outputStream.close();
             }
 //            获取响应码
             if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+//                打开输出流
+                httpURLConnection.setDoOutput(true);
 //                响应成功，获取输入流对象
                 InputStream inputStream = httpURLConnection.getInputStream();
 //                定义一个变量用于存储每次读取的长度
@@ -63,7 +73,7 @@ public class HttpUtils {
     * 参数列表
     * */
 //    拼接参数格式的方法
-    private String param(HashMap<String,Object> params) {
+    private static String param(HashMap<String,Object> params) {
         if (params == null) return null;
         Set<Map.Entry<String,Object>> entries = params.entrySet ();
         StringBuffer sb = new StringBuffer();

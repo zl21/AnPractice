@@ -9,6 +9,9 @@ import android.widget.EditText;
 import com.myapplication01.base.BaseActivity;
 import com.myapplication01.utils.HttpUtils;
 
+import java.util.HashMap;
+import java.util.Objects;
+
 /**
  * Created by zhoul on 2019/1/2.
  */
@@ -73,7 +76,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void run() {
 //                子线程
-                final String result = HttpUtils.doPost("login");
+                HashMap<String,Object> map = new HashMap<>();
+                map.put("account","account");
+                map.put("password","pwd");
+                final String result = HttpUtils.doPost("login",map);
 //                下面要走主线程，因为UI操作不能子线程实现
                 runOnUiThread(new Runnable() {
                     @Override

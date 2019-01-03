@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:text="返回"
-            android:id="@+id/login_reg_btn"
+            android:id="@+id/reg_back_but"
             android:textSize="15sp"
             android:textColor="#ffffff"
             android:layout_margin="5dp"
@@ -83,17 +83,20 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/reg_rg"
             android:padding="10dp"
             android:orientation="horizontal"
             android:background="@drawable/edi_back">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/rb_man"
                 android:text="M"
                 android:checked="true"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/reg_woman"
                 android:text="F"
                 android:layout_marginLeft="20dp"/>
         </RadioGroup>
@@ -110,13 +113,14 @@
             android:text="生日"
             android:gravity="center"
             android:textSize="18sp"/>
-        <DatePicker
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/reg_brithday_but"
+            android:text="格式为2019-01-03"
             android:background="@drawable/edi_back"
-            android:calendarViewShown="true"
-            android:spinnersShown="true">
-        </DatePicker>
+            android:paddingLeft="0dp">
+        </Button>
     </LinearLayout>
 
     <LinearLayout
@@ -135,7 +139,7 @@
             android:layout_height="match_parent"
             android:hint="请输入密码"
             android:inputType="textPassword"
-            android:id="@+id/login_password_edi"
+            android:id="@+id/reg_password_edi"
             android:paddingLeft="10dp"
             android:background="@drawable/edi_back"/>
     </LinearLayout>
@@ -154,8 +158,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="请输入姓名"
-            android:id="@+id/reg_repwd_edi"
+            android:hint="请再次输入密码"
+            android:id="@+id/reg_rePassword_edi"
             android:paddingLeft="10dp"
             android:background="@drawable/edi_back"/>
     </LinearLayout>
@@ -166,7 +170,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="确定注册"
-        android:id="@+id/login_login_but"
+        android:id="@+id/reg_ok_but"
         android:textSize="20sp"
         android:textColor="#ffffff"
         android:layout_marginTop="20dp"

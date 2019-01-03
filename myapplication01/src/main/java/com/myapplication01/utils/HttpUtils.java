@@ -13,7 +13,7 @@ import java.util.Set;
  * Created by zhoul on 2019/1/2.
  */
 public class HttpUtils {
-    private final static String HOST = "http://120.77.242.43:8000/";
+    private final static String HOST = "http://192.168.1.102:8080/health/";
     public static String doPost(String method,HashMap<String,Object> params) {
         try {
 //            获取URL对象
@@ -27,6 +27,8 @@ public class HttpUtils {
             httpURLConnection.setReadTimeout(5000);
 //            判断是否需要传参数
             if (params != null && params.keySet().size() > 0) {
+//                打开输出流
+                httpURLConnection.setDoOutput(true);
 //                获取输出流
                 OutputStream outputStream = httpURLConnection.getOutputStream();
 //                account=123 & password=123
@@ -41,8 +43,7 @@ public class HttpUtils {
             }
 //            获取响应码
             if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-//                打开输出流
-                httpURLConnection.setDoOutput(true);
+//
 //                响应成功，获取输入流对象
                 InputStream inputStream = httpURLConnection.getInputStream();
 //                定义一个变量用于存储每次读取的长度
@@ -68,11 +69,10 @@ public class HttpUtils {
             return "请检查URL！";
         }
     }
-    /*
-    * 参数类型String；
+    /*拼接参数格式的方法
+    * 返回值类型String；
     * 参数列表
     * */
-//    拼接参数格式的方法
     private static String param(HashMap<String,Object> params) {
         if (params == null) return null;
         Set<Map.Entry<String,Object>> entries = params.entrySet ();

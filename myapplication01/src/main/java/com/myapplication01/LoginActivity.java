@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.myapplication01.base.BaseActivity;
+import com.myapplication01.utils.AppApplication;
+import com.myapplication01.utils.Httputils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,7 +82,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 HashMap<String,Object> map = new HashMap<>();
                 map.put("account",account);
                 map.put("password",pwd);
-                final String result = Httputils.doPost("login",map);
+                final String result = Httputils.doPost("login", map);
 //                下面要走主线程，因为UI操作不能子线程实现
                 runOnUiThread(new Runnable() {
                     @Override
@@ -93,6 +95,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 //                            获取code值
                             int code = jsonObject.getInt("code");
                             if (code == 0) {
+                                AppApplication.account = account;
                                 toast("登录成功！");
 //                                跳转主界面
                                 startIntent(MainActivity.class);

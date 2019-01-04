@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.myapplication01.base.BaseActivity;
-import com.myapplication01.utils.HttpUtils;
+import com.myapplication01.utils.Httputils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -114,7 +114,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 map.put("sex",sex);
                 map.put("birthday",birBut.getText().toString().trim());
                 map.put("password", regPawEdi.getText().toString().trim());
-                final String result = HttpUtils.doPost("regeist", map);
+                final String result = Httputils.doPost("regeist", map);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

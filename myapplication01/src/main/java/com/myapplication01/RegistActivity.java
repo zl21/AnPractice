@@ -75,17 +75,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
             case R.id.reg_back_but:
                 break;
             case R.id.reg_ok_but:
-                break;
-            case R.id.reg_brithday_but:
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        birBut.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
-                    }
-                },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
-//                显示对话框
-                datePickerDialog.show();
-//                注册提交
                 if (TextUtils.isEmpty(regAccountEdi.getText())) {
                     toast("账号不能为空！");
                 }
@@ -99,6 +88,18 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                     reg();
 
                 }
+                break;
+            case R.id.reg_brithday_but:
+                DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        birBut.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                    }
+                },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+//                显示对话框
+                datePickerDialog.show();
+//                注册提交
+
                 break;
         }
     }

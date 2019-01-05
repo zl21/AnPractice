@@ -10,15 +10,9 @@ import java.util.HashMap;
  * 网络请求工具类
  */
 public class Httputils {
-
-    /**
-     * host主机
-     */
-//    private final static String HOST = "http://119.29.60.170/";
-    private final static String HOST = "http://192.168.1.102:8080/health/";
-    /**
-     * post请求
-     */
+// host主机
+    private final static String HOST = "http://192.168.1.112:8080/health/";
+//    post请求
     public static String doPost(String method, HashMap<String,Object> params){
 
         try {
@@ -37,7 +31,7 @@ public class Httputils {
                 //有参数
                 //开启输出流
                 conn.setDoOutput(true);
-                //获取输出流对象
+                //打开并获取输出流对象
                 OutputStream os = conn.getOutputStream();
                 //拼接数据格式
                 String reqData = param(params);
@@ -74,7 +68,6 @@ public class Httputils {
         }
 
     }
-
     private static String param(HashMap<String,Object> params){
         StringBuffer sb = new StringBuffer();
         for (HashMap.Entry entry:params.entrySet()) {
@@ -88,5 +81,4 @@ public class Httputils {
 
         return sb.toString();
     }
-
 }

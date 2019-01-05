@@ -32,9 +32,9 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         init();
-//        ½ÓÊÕintent´«µÄÖµ
-         name = getIntent().getStringExtra("name");
-//        ½«½ÓÊÕµ½µÄÖµÏÔÊ¾µ½¿Ø¼şÉÏ
+//        æ¥æ”¶intentä¼ çš„å€¼
+        name = getIntent().getStringExtra("name");
+//        å°†æ¥æ”¶åˆ°çš„å€¼æ˜¾ç¤ºåˆ°æ§ä»¶ä¸Š
         title.setText(name);
         search.setOnClickListener(this);
         back.setOnClickListener(this);
@@ -56,7 +56,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 getDate();
                 break;
             case R.id.search_back_but:
-                startIntent(MainActivity.class);
+                finish();
+                break;
         }
     }
     private void getDate() {
@@ -76,9 +77,9 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                             if (jsonObject.getInt("code") == 0) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 if (jsonArray != null) {
-//                                    ´´½¨ÊÊÅäÆ÷¶ÔÏó
+//                                    åˆ›å»ºé€‚é…å™¨å¯¹è±¡
                                     MyAdapter adapter = new MyAdapter(jsonArray);
-//                                    ÉèÖÃÊÊÅäÆ÷
+//                                    è®¾ç½®é€‚é…å™¨
                                     list.setAdapter(adapter);
                                 }
                             }
@@ -87,7 +88,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            toast("json¸ñÊ½Êı¾İÓĞÎó£¡");
+                            toast("jsonæ ¼å¼æ•°æ®æœ‰è¯¯ï¼");
                         }
                     }
 
@@ -97,8 +98,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         new Thread(runnable).start();
     }
     /*
-    * ×îµ×²ãµÄÊÊÅäÆ÷Àà
-    * ×Ô¶¨ÒåÊÊÅäÆ÷
+    * æœ€åº•å±‚çš„é€‚é…å™¨ç±»
+    * è‡ªå®šä¹‰é€‚é…å™¨
     * */
     private class MyAdapter extends BaseAdapter {
         private JSONArray array;
@@ -123,7 +124,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-//            ½âÎö²¼¾Ö
+//            è§£æå¸ƒå±€
             convertView = getLayoutInflater().inflate(R.layout.listview_item,parent,false);
             TextView startTv = (TextView) convertView.findViewById(R.id.item_start);
             TextView endTv = (TextView) convertView.findViewById(R.id.item_end);

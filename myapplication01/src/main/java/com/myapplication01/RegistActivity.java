@@ -38,9 +38,9 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         regBut.setOnClickListener(this);
         birBut.setOnClickListener(this);
         calendar = Calendar.getInstance();
-//        ¸øÉúÈÕButton¸³Ä¬ÈÏÖµ
+//        ç»™ç”Ÿæ—¥Buttonèµ‹é»˜è®¤å€¼
         birBut.setText(calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH)+1) + "-" + calendar.get(Calendar.DAY_OF_MONTH));
-//        ÉèÖÃµ¥Ñ¡¿òµÄ¼àÌıÊÂ¼ş
+//        è®¾ç½®å•é€‰æ¡†çš„ç›‘å¬äº‹ä»¶
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -76,15 +76,15 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 break;
             case R.id.reg_ok_but:
                 if (TextUtils.isEmpty(regAccountEdi.getText())) {
-                    toast("ÕËºÅ²»ÄÜÎª¿Õ£¡");
+                    toast("è´¦å·ä¸èƒ½ä¸ºç©ºï¼");
                 }
                 else if (TextUtils.isEmpty(regPawEdi.getText())) {
-                    toast("ÃÜÂë²»ÄÜÎª¿Õ£¡");
+                    toast("å¯†ç ä¸èƒ½ä¸ºç©ºï¼");
                 }else if (TextUtils.isEmpty(regRePwdEdi.getText())) {
-                    toast("ÃÜÂë²»Ò»ÖÂ£¡");
+                    toast("å¯†ç ä¸ä¸€è‡´ï¼");
                 }
                 else {
-//                    Ìá½»
+//                    æäº¤
                     reg();
 
                 }
@@ -96,9 +96,9 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                         birBut.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
                     }
                 },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
-//                ÏÔÊ¾¶Ô»°¿ò
+//                æ˜¾ç¤ºå¯¹è¯æ¡†
                 datePickerDialog.show();
-//                ×¢²áÌá½»
+//                æ³¨å†Œæäº¤
 
                 break;
         }
@@ -121,11 +121,11 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                         //toast(result);
                         try {
                             JSONObject jsonObject = new JSONObject(result);
-//                            »ñÈ¡codeÖµ
+//                            è·å–codeå€¼
                             int code = jsonObject.getInt("code");
                             if (code == 0) {
-                                toast("×¢²á³É¹¦£¡");
-//                                ½áÊøµ±Ç°activity
+                                toast("æ³¨å†ŒæˆåŠŸï¼");
+//                                ç»“æŸå½“å‰activity
                                 finish();
                             }
                             else {
@@ -133,14 +133,14 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            toast("·µ»ØÊı¾İ²»ÊÇjson¸ñÊ½£¡");
+                            toast("è¿”å›æ•°æ®ä¸æ˜¯jsonæ ¼å¼ï¼");
                         }
 
                     }
                 });
             }
         };
-//        Æô¶¯Ïß³Ì
+//        å¯åŠ¨çº¿ç¨‹
         new Thread(runnablen).start();
     }
 }

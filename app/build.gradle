@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileOptions.encoding = "GBK"
+    //compileOptions.encoding = "GBK"
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 

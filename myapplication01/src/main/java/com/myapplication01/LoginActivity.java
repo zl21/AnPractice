@@ -19,7 +19,7 @@ import java.util.HashMap;
  * Created by zhoul on 2019/1/2.
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-//    ³ÉÔ±±äÁ¿
+    //    æˆå‘˜å˜é‡
     private Button loginBut,regBut;
     private EditText accountEdi,pwdEdi;
     @Override
@@ -27,8 +27,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
-//        °´Å¥¼àÌıÊÂ¼ş
-//        thisÊÇµ±Ç°Àà£¬superÊÇµ±Ç°ÀàµÄ¸¸Àà
+//        æŒ‰é’®ç›‘å¬äº‹ä»¶
+//        thisæ˜¯å½“å‰ç±»ï¼Œsuperæ˜¯å½“å‰ç±»çš„çˆ¶ç±»
         loginBut.setOnClickListener(this);
         regBut.setOnClickListener(this);
     }
@@ -41,65 +41,65 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     @Override
-//    viewÊÇËùÓĞbutton¡¢editViewµÈµÄ¸¸
+//    viewæ˜¯æ‰€æœ‰buttonã€editViewç­‰çš„çˆ¶
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login_login_but:
-//                µÇÂ¼
+//                ç™»å½•
                 if(TextUtils.isEmpty(accountEdi.getText())) {
-                    toast("ÕËºÅ²»ÄÜÎª¿Õ£¡");
+                    toast("è´¦å·ä¸èƒ½ä¸ºç©ºï¼");
                     return;
                 }
                 else if (!accountEdi.getText().toString().trim().matches("[0-9]*")) {
-                    toast("ÕËºÅÖ»ÄÜÎªÊı×Ö£¡");
+                    toast("è´¦å·åªèƒ½ä¸ºæ•°å­—ï¼");
                     return;
-                    }
+                }
                 else if (TextUtils.isEmpty(pwdEdi.getText())) {
-                    toast("ÃÜÂë²»ÄÜÎª¿Õ£¡");
+                    toast("å¯†ç ä¸èƒ½ä¸ºç©ºï¼");
                     return;
                 }
                 else {
-//            ÍøÂçÇëÇó
+//            ç½‘ç»œè¯·æ±‚
                     login();
 
                 }
                 break;
             case R.id.login_reg_btn:
-//                ×¢²á
+//                æ³¨å†Œ
                 startIntent(RegistActivity.class);
                 break;
         }
     }
-//    Ö´ĞĞµÇÂ¼
+    //    æ‰§è¡Œç™»å½•
     private void login() {
         final String account = accountEdi.getText().toString().trim();
         final String pwd = pwdEdi.getText().toString().trim();
-//        ´´½¨Ïß³Ì¡¢
+//        åˆ›å»ºçº¿ç¨‹ã€
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-//                ×ÓÏß³Ì
+//                å­çº¿ç¨‹
                 HashMap<String,Object> map = new HashMap<>();
                 map.put("account",account);
                 map.put("password",pwd);
                 final String result = Httputils.doPost("login", map);
-//                ÏÂÃæÒª×ßÖ÷Ïß³Ì£¬ÒòÎªUI²Ù×÷²»ÄÜ×ÓÏß³ÌÊµÏÖ
+//                ä¸‹é¢è¦èµ°ä¸»çº¿ç¨‹ï¼Œå› ä¸ºUIæ“ä½œä¸èƒ½å­çº¿ç¨‹å®ç°
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-//                        Ö÷Ïß³Ì
+//                        ä¸»çº¿ç¨‹
                         //toast(result);
-//                        ½«·µ»ØµÄÀàĞÍÊı¾İ×ª»¯Îªjson¶ÔÏó
+//                        å°†è¿”å›çš„ç±»å‹æ•°æ®è½¬åŒ–ä¸ºjsonå¯¹è±¡
                         try {
                             JSONObject jsonObject = new JSONObject(result);
-//                            »ñÈ¡codeÖµ
+//                            è·å–codeå€¼
                             int code = jsonObject.getInt("code");
                             if (code == 0) {
                                 AppApplication.account = account;
-                                toast("µÇÂ¼³É¹¦£¡");
-//                                Ìø×ªÖ÷½çÃæ
+                                toast("ç™»å½•æˆåŠŸï¼");
+//                                è·³è½¬ä¸»ç•Œé¢
                                 startIntent(MainActivity.class);
-//                                ½áÊøµ±Ç°activity
+//                                ç»“æŸå½“å‰activity
                                 finish();
                             }
                             else {
@@ -107,14 +107,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            toast("·µ»ØÊı¾İ²»ÊÇjson¸ñÊ½£¡");
+                            toast("è¿”å›æ•°æ®ä¸æ˜¯jsonæ ¼å¼ï¼");
                         }
 
                     }
                 });
             }
         };
-//        Æô¶¯Ïß³Ì
+//        å¯åŠ¨çº¿ç¨‹
         new Thread(runnable).start();
 
 

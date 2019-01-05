@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#ff0000">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -16,7 +15,28 @@
             android:textSize="26sp"
             android:textColor="#ffffff"
             android:gravity="center"/>
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:text="添加"
+            android:id="@+id/add_but"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:layout_margin="5dp"
+            android:background="@drawable/but_back"/>
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:text="取消"
+            android:id="@+id/add_cancel_but"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:layout_margin="5dp"
+            android:background="@drawable/but_back"/>
     </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +53,7 @@
                 android:textSize="21sp"
                 android:gravity="center"
                 android:textAlignment="center"/>
+            <!-- 晨跑-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,12 +77,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_runS_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -79,12 +100,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_runE_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -102,19 +123,20 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_runM_edi"
                     android:paddingLeft="10dp"
-                    android:text="例如输入1000（单位为米）"
+                    android:hint="例如输入1000（单位为米）"
                     android:background="@drawable/edi_back"/>
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="20dp"/>
 
+            <!-- 晨练-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,12 +160,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_exerciseS_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -161,27 +183,27 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_exerciseE_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"/>
 
+            <!-- 日间行走-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="日间行走"
                 android:textSize="20sp"
                 android:paddingLeft="5dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -199,12 +221,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_walkS_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -222,26 +244,27 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_walkE_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"/>
+
+            <!-- 骑行-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="骑行"
                 android:textSize="20sp"
                 android:paddingLeft="5dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -259,12 +282,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_bikeS_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -282,27 +305,49 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_bikeE_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
+                <TextView
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
+                    android:text="里      程"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/add_bikeM_edi"
+                    android:paddingLeft="10dp"
+                    android:hint="例如输入1000（单位为米）"
+                    android:background="@drawable/edi_back"/>
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"/>
 
+            <!-- 游泳-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="游泳"
                 android:textSize="20sp"
                 android:paddingLeft="5dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -320,12 +365,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_swimS_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -343,27 +388,27 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_swimE_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"/>
 
+            <!-- 球类运动-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="球类运动"
                 android:textSize="20sp"
                 android:paddingLeft="10dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -381,12 +426,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_ballS_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -404,28 +449,27 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_ballE_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"/>
 
+            <!-- 晚间跑步-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="晚间跑步"
                 android:textSize="20sp"
                 android:paddingLeft="5dp"/>
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -443,12 +487,12 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_nightS_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -466,18 +510,40 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/add_nightE_but"
                     android:background="@drawable/edi_back"
                     android:paddingLeft="10dp"
                     android:text="格式为18:00:00"
                     android:textSize="18sp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
+                <TextView
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
+                    android:text="里      程"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/add_nightM_edi"
+                    android:paddingLeft="10dp"
+                    android:hint="例如输入1000（单位为米）"
+                    android:background="@drawable/edi_back"/>
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"/>
         </LinearLayout>
     </ScrollView>

@@ -43,35 +43,36 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-//        Ğ¯´øÊı¾İµÄÌø×ª
+//        æºå¸¦æ•°æ®çš„è·³è½¬
         Intent intent = new Intent(this,SearchActivity.class);
         switch (v.getId()) {
             case R.id.selece_add_but:
+                startIntent(AddActivity.class);
                 break;
             case R.id.select_morningRun_but:
-                intent.putExtra("name","³¿ÅÜ");
+                intent.putExtra("name","æ™¨è·‘");
                 break;
             case R.id.select_exercise_but:
-                intent.putExtra("name","³¿Á·");
+                intent.putExtra("name","æ™¨ç»ƒ");
                 break;
             case R.id.select_walk_but:
-                intent.putExtra("name","ÈÕ¼äĞĞ×ß");
+                intent.putExtra("name","æ—¥é—´è¡Œèµ°");
                 break;
             case R.id.select_bike_but:
-                intent.putExtra("name","ÆïĞĞ");
+                intent.putExtra("name","éª‘è¡Œ");
                 break;
             case R.id.select_swim_but:
-                intent.putExtra("name","ÓÎÓ¾");
+                intent.putExtra("name","æ¸¸æ³³");
                 break;
             case R.id.select_ball_but:
-                intent.putExtra("name","ÇòÀà");
+                intent.putExtra("name","çƒç±»");
                 break;
             case R.id.select_night_but:
-                intent.putExtra("name","Íí¼äÅÜ²½");
+                intent.putExtra("name","æ™šé—´è·‘æ­¥");
                 break;
         }
         if (v.getId() != R.id.selece_add_but) {
-        //        Æô¶¯ÒâÍ¼¶ÔÏó
+            //        å¯åŠ¨æ„å›¾å¯¹è±¡
             startActivity(intent);
         }
 
